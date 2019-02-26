@@ -158,6 +158,8 @@ class ZhuantiController extends Controller
         $form->select('level1', '产品分类1')->options('/admin/api/getzhauntilevel1')->load('level2','/admin/api/getzhauntilevel2');
         $form->select('level2', '产品分类2');
         $form->text('title', '产品标题');
+        $form->text('keywords', 'SEO关键字');
+        $form->text('description', 'SEO描述');
         $form->text('tag', '标签')->help('非必填');
         $form->text('pp', '品牌');
         $form->text('ys', '颜色');

@@ -188,6 +188,8 @@ class NewsController extends Controller
         $form = new Form(new News);
 
         $form->text('title', '标题');
+        $form->text('keywords', 'SEO关键字');
+        $form->text('description', 'SEO描述');
         $form->select('type', '分类')->options([
             1 => '公司新闻',
             2 => '行业新闻',
@@ -203,7 +205,7 @@ class NewsController extends Controller
         ])->default(1);
         $form->text('ly', '来源');
         $form->image('thumb', '缩略图')->uniqueName();
-        $form->text('desc', '描述');
+        $form->text('desc', '副标题');
         $form->text('tag', '标签');
         $form->radio('is_hot', '热门搜索')->options([0 => '否', 1 => '是']);
         $form->editor('data', '详情');

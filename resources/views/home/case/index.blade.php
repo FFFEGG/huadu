@@ -101,8 +101,11 @@
                                 @foreach($cate1 as $v)
                                 <li>
                                     <label>
-                                        <input type="radio" name="unitType"  value="{{ $v->name }}" />
-                                        <span>{{ $v->name }}</span>
+                                        <a style="color: black;" href="/caselist/{{ $v->id }}">
+                                            <input type="radio" name="unitType"  value="{{ $v->name }}" />
+                                            <span @if($id==$v->id)style="background-color: #3e82b0;color: #FFFFFF"@endif>{{ $v->name }}</span>
+                                        </a>
+
                                     </label>
                                 </li>
                                 @endforeach
@@ -113,8 +116,10 @@
                                 @foreach($cate2 as $v)
                                     <li>
                                         <label>
-                                            <input type="radio" name="unitType"  value="{{ $v->name }}" />
-                                            <span>{{ $v->name }}</span>
+                                            <a style="color: black" href="/caselist/{{ $v->id }}">
+                                                <input type="radio" name="unitType"  value="{{ $v->name }}" />
+                                                <span @if($id==$v->id)style="background-color: #3e82b0;color: #FFFFFF"@endif>{{ $v->name }}</span>
+                                            </a>
                                         </label>
                                     </li>
                                 @endforeach

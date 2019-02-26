@@ -11,8 +11,8 @@
     <title>{{ $data->title }}</title>
 
 
-    <meta name="keywords" content="智能密集架优质品牌,智能密集架" />
-    <meta name="description" content="花都从1992年以来，一直秉承着持之以恒的精神，积极进取、锐意创新，致力于密集架的研发。从起初的手摇密集架、电动密集架、到现在的智能密集架，花都凭借时尚的外观设计，更加稳定的性能、以及专业的团队和服务理念，服务全球。花都每一次的突破，都能带来质的改变，在智能密集架及整个密集架行业脱颖而出，成为行业的领军者。" />
+    <meta name="keywords" content="{{ $keywords }}" />
+    <meta name="description" content="{{ $description }}" />
 
 
 

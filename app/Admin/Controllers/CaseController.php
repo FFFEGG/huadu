@@ -149,7 +149,9 @@ class CaseController extends Controller
         $form->select('cate_id', '分类')->options('/admin/api/getcasecate');
         $form->select('algw_id', '顾问')->options('/admin/api/getgw');
         $form->text('title', '标题');
-        $form->text('desc', '描述');
+        $form->text('keywords', 'SEO关键字');
+        $form->text('description', 'SEO描述');
+        $form->text('desc', '副标题');
         $form->text('author', '来源');
         $form->radio('is_tj', '推荐')->options([0=>'否',1=>'是']);
         $form->image('thumb', '缩略图')->uniqueName();

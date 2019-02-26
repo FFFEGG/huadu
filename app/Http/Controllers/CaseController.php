@@ -32,6 +32,7 @@ class CaseController extends Controller
         //推荐案例
         $tj = Cases::OrderBy('created_at','desc')->where('is_tj',1)->limit(8)->get();
 
+        $id = 0;
         if (Agent::isMobile()) {
             if ($request->cate_id=='') {
                 $list =  Cases::OrderBy('created_at','desc')->get();
@@ -43,7 +44,36 @@ class CaseController extends Controller
             return view('wap.case.index',compact('top','cate1','cate2','list','tj'));
         }
 
-        return view('home.case.index',compact('top','cate1','cate2','list','tj'));
+        return view('home.case.index',compact('top','cate1','cate2','list','tj','id'));
+    }
+
+    public function caselist(Request $request)
+    {
+        //顶部案例
+        $top = Cases::OrderBy('created_at','desc')->limit(5)->get();
+
+        //分类
+        $cate1 = CaseCate::whereType(0)->get();
+        $cate2 = CaseCate::whereType(1)->get();
+
+        //案例
+        $list =  Cases::where('cate_id',$request->id)->OrderBy('created_at','desc')->paginate(10);
+
+        //推荐案例
+        $tj = Cases::OrderBy('created_at','desc')->where('is_tj',1)->limit(8)->get();
+        $id = $request->id;
+        if (Agent::isMobile()) {
+            if ($request->cate_id=='') {
+                $list =  Cases::OrderBy('created_at','desc')->get();
+            } else {
+                $list =  Cases::where('cate_id', $request->cate_id)->OrderBy('created_at','desc')->get();
+            }
+
+
+            return view('wap.case.index',compact('top','cate1','cate2','list','tj'));
+        }
+
+        return view('home.case.index',compact('top','cate1','cate2','list','tj','id'));
     }
 
 
@@ -59,11 +89,13 @@ class CaseController extends Controller
 
         $likes = Cases::whereNotIn('id',[$request->id])->orderBy('created_at','desc')->limit(6)->get();
 
+        $keywords = $data->keywords;
+        $description = $data->description;
 
         if (Agent::isMobile()) {
-            return view('wap.case.data',compact('data','prev_article','next_article','likes'));
+            return view('wap.case.data',compact('data','prev_article','next_article','likes','keywords','description'));
         }
 
-        return view('home.case.data',compact('data','prev_article','next_article','likes'));
+        return view('home.case.data',compact('data','prev_article','next_article','likes','keywords','description'));
     }
 }

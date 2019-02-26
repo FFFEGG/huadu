@@ -10,8 +10,8 @@
     <title>@yield('title')</title>
 
 
-    <meta name="keywords" content="{{ $sys->keywords }}"/>
-    <meta name="description" content="{{ $sys->desc }}"/>
+    <meta name="keywords" content="{{ $keywords }}"/>
+    <meta name="description" content="{{ $description }}"/>
 
 
 

@@ -29,12 +29,18 @@ class AppServiceProvider extends ServiceProvider
 
         $yqlj = Yqlj::get();
 
+        //关键字
+        $keywords = $sys->keywords;
+        $description = $sys->desc;
+
         View::share([
             'hdtt' =>$hdtt,
             'tjal' =>$tjal,
             'hot_search' =>$hot_search,
             'sys' =>$sys,
             'yqlj' =>$yqlj,
+            'keywords' =>$keywords,
+            'description' =>$description,
         ]);
     }
 

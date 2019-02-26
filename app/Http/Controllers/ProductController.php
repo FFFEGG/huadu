@@ -84,11 +84,15 @@ class ProductController extends Controller
 
         //热销产品
         $hot = Product::whereIsTj(1)->orderBy('created_at', 'desc')->limit(6)->get();
+
+        $keywords = $data->keywords;
+        $description = $data->description;
+
         if (Agent::isMobile()) {
 
             return view('wap.product.data', compact('data', 'xg_list', 'hot'));
         }
-        return view('home.product.data', compact('data', 'xg_list', 'hot'));
+        return view('home.product.data', compact('data', 'xg_list', 'hot','keywords','description'));
     }
 
 

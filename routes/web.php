@@ -38,6 +38,7 @@ Route::get('/Product/MobileQueryList', 'ProductController@MobileQueryList');
 
 Route::get('/case', 'CaseController@index');
 Route::get('/case/{id}', 'CaseController@data');
+Route::get('/caselist/{id}', 'CaseController@caselist');
 Route::get('/news', 'NewsController@index');
 Route::get('/news/industry', 'NewsController@industry');
 Route::get('/news/question', 'NewsController@question');

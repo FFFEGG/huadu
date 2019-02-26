@@ -156,6 +156,9 @@ class ProductController extends Controller
         $form->select('level1', '产品分类1')->options('/admin/api/getlevel1')->load('level2','/admin/api/getlevel2');
         $form->select('level2', '产品分类2');
         $form->text('title', '产品标题');
+        $form->text('keywords', 'SEO关键字');
+        $form->text('description', 'SEO描述');
+        $form->text('title', '产品标题');
         $form->text('pp', '品牌');
         $form->text('ys', '颜色');
         $form->text('gg', '规格');

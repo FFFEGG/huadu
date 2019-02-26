@@ -55,11 +55,14 @@ class NewsController extends Controller
         //猜你想要了解
         $wants = Product::orderBy('created_at','desc')->limit(6)->get();
 
+        $keywords = $data->keywords;
+        $description = $data->description;
+
         if (Agent::isMobile()) {
 
-            return view('wap.news.data',compact('data','prev_article','next_article','likes','wants'));
+            return view('wap.news.data',compact('data','prev_article','next_article','likes','wants','keywords','description'));
         }
 
-        return view('home.news.data',compact('data','prev_article','next_article','likes','wants'));
+        return view('home.news.data',compact('data','prev_article','next_article','likes','wants','keywords','description'));
     }
 }
